@@ -1,0 +1,15 @@
+[project]
+name = "promptgpt"
+version = "1.0.0"
+description = "A project for natural language programming. (ChatGPT Version)"
+authors = [
+    {name = "Leonardo Mieschendahl", email = "miesschendahl.leonardo@gmail.com"}
+]
+dependencies = [
+    'openai >=1.83.0, <2.0.0',
+    'PromptPy @ git+https://github.com/Mieschendahl/PromptPy.git'
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
