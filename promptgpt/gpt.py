@@ -11,7 +11,7 @@ class GPT(Model):
     
     def configure(self, **config: Any) -> "GPT":
         """GPT constructor.
-        
+    
         Args:
             api_key: The api key that should be passed to OpenAi for API access.
             config: Configuration that is passed to OpenAI's chat completion creation method.
@@ -36,9 +36,11 @@ class GPT(Model):
                 stop=stop,
                 **self.config
             ).choices[0].message.content#
-    
-gpt_4o_mini = GPT(use_cache=True, cache_path="__promptgpt__")\
-    .configure(model="gpt-4o-mini", temperature=0)
-    
-gpt_4o = GPT(use_cache=True, cache_path="__promptgpt__")\
+
+gpt_4o = GPT()\
+    .set_cache("__promptgpt__/gpt-4o")\
     .configure(model="gpt-4o", temperature=0)
+    
+gpt_4o_mini = GPT()\
+    .set_cache("__promptgpt__/gpt-4o-mini")\
+    .configure(model="gpt-4o-mini", temperature=0)
